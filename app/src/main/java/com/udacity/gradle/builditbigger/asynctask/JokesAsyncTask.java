@@ -2,7 +2,6 @@ package com.udacity.gradle.builditbigger.asynctask;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -12,7 +11,6 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 import com.udacity.gradle.builditbigger.fragment.MainActivityFragment;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class JokesAsyncTask extends AsyncTask<MainActivityFragment, Void, String> {
 

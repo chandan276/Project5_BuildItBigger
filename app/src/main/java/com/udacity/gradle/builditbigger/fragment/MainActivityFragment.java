@@ -11,13 +11,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.chandan.android.jokedisplaylib.JokesListActivity;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.udacity.gradle.builditbigger.R;
 import com.udacity.gradle.builditbigger.asynctask.JokesAsyncTask;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -27,6 +22,8 @@ public class MainActivityFragment extends Fragment {
 
     ProgressBar progressBar = null;
     public String jokeString = null;
+
+    public boolean enableTest = false;
 
     public MainActivityFragment() { }
 
@@ -47,26 +44,20 @@ public class MainActivityFragment extends Fragment {
         progressBar = (ProgressBar) root.findViewById(R.id.progressbar);
         progressBar.setVisibility(View.GONE);
 
-        AdView mAdView = (AdView) root.findViewById(R.id.adView);
-        // Create an ad request. Check logcat output for the hashed device ID to
-        // get test ads on a physical device. e.g.
-        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-        mAdView.loadAd(adRequest);
         return root;
     }
 
-    public void getJoke(){
+    public void getJoke() {
         new JokesAsyncTask().execute(this);
     }
 
-    public void openJokesListActivity(){
-        Context context = getActivity();
-        Intent intent = new Intent(context, JokesListActivity.class);
-        intent.putExtra(Intent.EXTRA_TEXT, jokeString);
-        context.startActivity(intent);
-        progressBar.setVisibility(View.GONE);
+    public void openJokesListActivity() {
+        if (!enableTest) {
+            Context context = getActivity();
+            Intent intent = new Intent(context, JokesListActivity.class);
+            intent.putExtra(Intent.EXTRA_TEXT, jokeString);
+            context.startActivity(intent);
+            progressBar.setVisibility(View.GONE);
+        }
     }
 }

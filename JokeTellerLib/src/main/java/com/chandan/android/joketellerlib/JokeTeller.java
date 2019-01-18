@@ -1,12 +1,10 @@
 package com.chandan.android.joketellerlib;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class JokeTeller {
 
+    private static final String jokeOfTheDay = "I have the world’s largest collection of seashells, you may have seen it, I keep it scattered on beaches all over.";
+
     public String sendJokesToGCE() {
-        return "Microsoft gives you Windows, Linux gives you a home!";
+        return jokeOfTheDay;
     }
 }

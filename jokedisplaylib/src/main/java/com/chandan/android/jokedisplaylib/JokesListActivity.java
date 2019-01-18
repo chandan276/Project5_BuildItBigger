@@ -6,10 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class JokesListActivity extends AppCompatActivity {
 
